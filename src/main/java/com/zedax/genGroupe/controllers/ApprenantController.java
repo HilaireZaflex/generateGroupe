@@ -17,18 +17,34 @@ public class ApprenantController {
 
     @PostMapping("/addApprenant")
     String addApprenant(@RequestBody Apprenant apprenant){
+
         return apprenantService.addApprenant(apprenant);
     }
+
+
     @GetMapping("/listerApprenant")
     List<Apprenant> listerApprenant(){
+
         return apprenantService.listerApprenant();
     }
+
 
     @PutMapping("/modifierApprenant/{id}")
     Apprenant modifierApprenant(@RequestBody Apprenant apprenant, @PathVariable Long id){
         return apprenantService.modifierApprenant(apprenant, id);
     }
 
+
+    @DeleteMapping("/supprimerApprenant/{id}")
+     void supprimerApprenant(@RequestBody Apprenant apprenant, @PathVariable Long id){
+        apprenantService.supprimerApprenant(id);
+    }
+
+
+    @GetMapping("/detailApprenant/{id}")
+    Apprenant AfficherById(@PathVariable Long id){
+        return apprenantService.AfficherById(id);
+    }
 
 
 }
