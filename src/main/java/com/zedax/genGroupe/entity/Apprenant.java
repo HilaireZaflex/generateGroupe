@@ -10,33 +10,35 @@ public class Apprenant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nom;
+    private String nomComplet;
     private String email;
     private int tel;
+
+
     @ManyToMany(mappedBy = "apprenants")
-    private List<Admin> admin;
+    @JsonIgnore
+    private List <Groupe> groupes;
 
     @ManyToOne
-    @JsonIgnore
-    private Groupe groupe;
+    private Promotion promotion;
+
+    public Promotion getPromotion() {
+        return promotion;
+    }
+
+    public void setPromotion(Promotion promotion) {
+        this.promotion = promotion;
+    }
 
     public Apprenant() {
     }
 
-    public Groupe getGroupe() {
-        return groupe;
+    public List<Groupe> getGroupes() {
+        return groupes;
     }
 
-    public void setGroupe(Groupe groupe) {
-        this.groupe = groupe;
-    }
-
-    public List<Admin> getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(List<Admin> admin) {
-        this.admin = admin;
+    public void setGroupes(List<Groupe> groupes) {
+        this.groupes = groupes;
     }
 
     public Long getId() {
@@ -47,12 +49,12 @@ public class Apprenant {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getNomComplet() {
+        return nomComplet;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNomComplet(String nomComplet) {
+        this.nomComplet = nomComplet;
     }
 
     public String getEmail() {
