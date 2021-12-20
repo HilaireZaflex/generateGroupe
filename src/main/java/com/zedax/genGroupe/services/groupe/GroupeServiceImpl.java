@@ -45,7 +45,7 @@ public class GroupeServiceImpl implements GroupeService{
     }
 
     @Override
-    public List<Groupe> generatGroupes() {
+    public List<Groupe> generateGroupes() {
         return null;
     }
     

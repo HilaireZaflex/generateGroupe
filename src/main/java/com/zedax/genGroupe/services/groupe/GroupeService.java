@@ -12,6 +12,6 @@ public interface GroupeService {
     public void modifyGroupe(Long groupeId, Groupe groupe);
     public String deleteGroupe(Long groupeId);    
 
-    public List<Groupe> generatGroupes();
+    public List<Groupe> generateGroupes();
 
 }
