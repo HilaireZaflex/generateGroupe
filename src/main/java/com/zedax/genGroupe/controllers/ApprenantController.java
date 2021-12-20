@@ -1,7 +1,6 @@
 package com.zedax.genGroupe.controllers;
 
 import com.zedax.genGroupe.entity.Apprenant;
-import com.zedax.genGroupe.services.apprenant.ApprenantService;
 import com.zedax.genGroupe.services.apprenant.ApprenantServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
