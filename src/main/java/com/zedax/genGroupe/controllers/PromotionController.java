@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/api")
 
-public class AdminController {
+public class PromotionController {
 
     @Autowired
     PromotionServiceImp promotionServiceImp;
