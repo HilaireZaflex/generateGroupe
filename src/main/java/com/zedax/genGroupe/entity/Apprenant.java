@@ -1,8 +1,9 @@
 package com.zedax.genGroupe.entity;
 
+import javax.persistence.*;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -17,7 +18,7 @@ public class Apprenant {
 
     @ManyToMany(mappedBy = "apprenants")
     @JsonIgnore
-    private List <Groupe> groupes;
+    private List<Groupe> groupes;
 
     @ManyToOne
     private Promotion promotion;

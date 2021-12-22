@@ -14,7 +14,15 @@ public class Promotion {
     private Date promoAnnee;
 
     @OneToMany(mappedBy = "promotion")
-    private List<Apprenant>apprenants;
+    private List<Apprenant> apprenants;
+
+
+    public Promotion() {
+    }
+
+    public Long getId() {
+        return id;
+    }
 
     public List<Apprenant> getApprenants() {
         return apprenants;
@@ -22,13 +30,6 @@ public class Promotion {
 
     public void setApprenants(List<Apprenant> apprenants) {
         this.apprenants = apprenants;
-    }
-
-    public Promotion() {
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getPromoNom() {

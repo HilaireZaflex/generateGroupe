@@ -54,4 +54,10 @@ public class GroupeController
         groupeServiceImpl.modifyGroupe(groupeId, groupe);
         return "Modification éffectuée avec succès !";
     }
+
+    @GetMapping("/genGroupe/{nbGroupe}")
+    public List<Groupe> generatGroupes(@PathVariable("nbGroupe") Integer nombreGroupe)
+    {
+        return groupeServiceImpl.generateGroupesByNbGroupes(nombreGroupe);
+    }
 }

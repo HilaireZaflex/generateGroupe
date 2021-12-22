@@ -9,23 +9,23 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/api/apprenant")
 public class ApprenantController {
     @Autowired
-    ApprenantServiceImpl apprenantService;
+    ApprenantServiceImpl apprenantServiceImpl;
 
     @PostMapping("/addApprenant")
     String addApprenant(@RequestBody Apprenant apprenant){
-        return apprenantService.addApprenant(apprenant);
+        return apprenantServiceImpl.addApprenant(apprenant);
     }
     @GetMapping("/listerApprenant")
     List<Apprenant> listerApprenant(){
-        return apprenantService.listerApprenant();
+        return apprenantServiceImpl.listerApprenant();
     }
 
     @PutMapping("/modifierApprenant/{id}")
     Apprenant modifierApprenant(@RequestBody Apprenant apprenant, @PathVariable Long id){
-        return apprenantService.modifierApprenant(apprenant, id);
+        return apprenantServiceImpl.modifierApprenant(apprenant, id);
     }
 
 
