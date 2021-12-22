@@ -1,0 +1,26 @@
+h1{
+    font-size: 15px;
+    text-align: center;
+    color: gray;
+}
+.allign{
+    display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      align-content: stretch;
+  
+  
+  }
+  .one{
+    border: groove;
+    width: 180px;
+    height: 150px;
+  
+  }
+  .two{
+    border: groove;
+    width: 180px;
+    height: 150px;
+  }

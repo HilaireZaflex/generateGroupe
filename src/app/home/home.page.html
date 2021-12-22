@@ -1,0 +1,165 @@
+
+<ion-header>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="accueil">
+        Accueil
+      </ion-segment-button>
+      <ion-segment-button value="groupes">
+        Groupe
+      </ion-segment-button>
+      <ion-segment-button value="liste">
+        Listes
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<div [ngSwitch]="pet" class="container">
+    <!--Pour l'accueil--> 
+  <div *ngSwitchCase="'accueil'">
+  <img style="margin-top : 20px;width: 100px; height: 100px;" src="./assets/groupicone.png" alt="">
+  <h1 class="title">
+    Random Group Generator
+  </h1>
+  <form>
+    <div class="form-group file-area">
+      <input  accept=".xlsx" type="file" name="images" id="images"/>
+      <div class="file-dummy">
+        <div class="default">Veuillez importer une liste</div>
+      </div>
+      <p style="color:rgb(156, 156, 156) ; font-size: 10px;text-align: right">Note : seuls les fichiers .xlsx sont </p>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label>Nom</ion-label>
+      <ion-input type="text" ></ion-input>
+    </ion-item>
+  
+
+
+    <ion-item lines="full">
+      <ion-label>Nombre personne</ion-label>
+      <ion-input type="number" ></ion-input>
+    </ion-item>
+    
+
+
+    <ion-item lines="full">
+      <ion-label>Nombre groupe</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+ 
+
+
+      <button class="bubbly-button" type="submit"> Generate groups </button> <br>
+</form>
+</div>
+
+   <!--Pour les groupes--> 
+<div *ngSwitchCase="'groupes'">
+ 
+  <div class="toute">
+     <!-- entette -->
+     <ion-header class="entete" >
+      <ion-img  src="assets/multiple-users-silhouette.png"></ion-img>
+      <h4>Random Group Generator</h4>
+     </ion-header>
+    <ion-searchbar placeholder="Recherche"></ion-searchbar>
+    <ion-card>
+    <div class="container col-md-3">
+  <h5>Historique</h5>
+  
+    <div>
+      <ion-list class="lab">
+        <ion-item>
+          <ion-label class="un">Nom du Random</ion-label>
+          <ion-label class="un">action</ion-label>
+        </ion-item>
+        <ion-item class="action">
+          <ion-label>Répartition du TP flutter </ion-label>
+          <ion-label class="un">
+            <ion-img  src="assets/export.png"></ion-img>
+            <ion-img  src="assets/vision.png" routerLink='/affichage'></ion-img>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+  </div>
+  </div>
+  </ion-card>
+  </div>
+</div>
+
+  <!--Pour les listes--> 
+<div *ngSwitchCase="'liste'">
+  
+  <div>
+    <img style="margin-top : 20px;width: 100px; height: 100px;" src="./assets/multiple-users-silhouette.png" alt="#" class="img2">
+</div>
+
+<ion-toolbar>
+  <ion-searchbar placeholder="Recherche"></ion-searchbar>
+</ion-toolbar>
+
+    <div class="col1" >
+    <ion-row>
+      <ion-button color="warning">
+        <img class="img3" src="./assets/add.png" alt="#" routerLink="/ajouter" style="margin-right: 150%;">
+      </ion-button>
+    </ion-row>
+
+    <ion-row>
+      <ion-button color="warning">
+         <img class="img3" src="./assets/import (2).png" alt="#" (click)="presentePopover($event)" style="margin-right: 150%;" >
+      </ion-button>
+    </ion-row>
+
+    <ion-row>
+      <ion-button color="warning">
+        <img class="img3" src="./assets/export.png" alt="#" (click)="onClick()" style="margin-right: 150%;">
+      </ion-button>
+    </ion-row>
+    </div>
+
+        <p class="title2">Listes</p>
+
+        <ion-card>
+          <ion-row>
+            <ion-col>
+              <ion-list>
+                <ion-label>
+                  <small>Nom complet</small>
+                </ion-label>
+              </ion-list>
+            </ion-col>
+
+            <ion-col>
+              <ion-list>
+                <ion-label>
+                  <small>Email</small>
+                </ion-label>
+              </ion-list>
+            </ion-col>
+
+            <ion-col>
+              <ion-list>
+                <ion-label>
+                  <small>Number</small>
+                </ion-label>
+              </ion-list>
+            </ion-col>
+
+            <ion-col>
+              <ion-list>
+                <ion-label>
+                  <small>Action</small>
+                </ion-label>
+              </ion-list>
+            </ion-col>
+
+          </ion-row>
+        </ion-card>
+</div>
+
+</div>

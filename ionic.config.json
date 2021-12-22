@@ -1,0 +1,7 @@
+{
+  "name": "generateGroupeFront",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

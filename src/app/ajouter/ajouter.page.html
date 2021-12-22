@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="form" [formGroup]="validations_form" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating" color="primary">Nom</ion-label>
+      <ion-input type="text" formControlName="nomComplet"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.nomComplet">
+        <div class="error-message"
+          *ngIf="validations_form.get('nomComplet').hasError(validation.type) && (validations_form.get('nomComplet').dirty || validations_form.get('nomComplet').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message"
+          *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Telephone</ion-label>
+      <ion-input type="number" formControlName="tel" class="form-controll" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.tel">
+        <div class="error-message"
+          *ngIf="validations_form.get('tel').hasError(validation.type) && (validations_form.get('tel').dirty || validations_form.get('tel').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-button type="submit" [disabled]="!validations_form.valid">Ajouter</ion-button>
+  </form>
+
+</ion-content>
