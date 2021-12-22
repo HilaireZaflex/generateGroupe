@@ -1,8 +1,10 @@
 package com.zedax.genGroupe.services.groupe;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.transaction.Transactional;
 
@@ -17,6 +19,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class GroupeServiceImpl implements GroupeService{
+    //Type de tirage
+    final String ALEATOIRE = "ALEATOIRE";
+
     @Autowired
     GroupeRepository groupeRepository;
 
@@ -56,70 +61,37 @@ public class GroupeServiceImpl implements GroupeService{
     }
 
     @Override
-    public List<Groupe> generateGroupesByNbGroupes(Integer nombreGroupe)
+    public List<Groupe> generateGroupesByNbGroupes(Integer nombreGroupe, String tri)
     {
-
-        //Random class
-        Random random = new Random();
-
         //Listes des apprenants
         List<Apprenant> allApprenants = apprenantRepository.findAll();
 
-        //Nombre d'apprenants
-        Integer nombreApprenants = apprenantRepository.findAll().size();
+        List<Groupe> genGroup = new ArrayList<>();
 
-        //Liste des groupes générés et leurs membres
-        List<Groupe> groupeGenerated = new ArrayList<Groupe>();
-        List<Apprenant> listAppGene = new ArrayList<>();
-
-        Integer nbMemberPerGroup = 0;
-        Integer nbMemberNoAffect;
-
-        if((nombreApprenants % nombreGroupe) != 0)
+        if(tri.equals(ALEATOIRE))
         {
-            nbMemberNoAffect = nombreApprenants % nombreGroupe;
-            nbMemberPerGroup = (nombreApprenants - nbMemberNoAffect) / nombreGroupe;
-
-            for(int i = 1; i <= nombreGroupe; i++)
-            {
-                for(int j = 0; j < nbMemberPerGroup; j++)
-                {
-                    int randomIndex = random.nextInt(allApprenants.size());
-                    Apprenant randomApprenant = allApprenants.get(randomIndex);
-                    listAppGene.add(randomApprenant);
-                    allApprenants.remove(randomIndex);
-                }
-
-                Groupe groupe = new Groupe();
-                groupe.setNom("Groupe "+i);
-                groupe.setApprenants(listAppGene);;
-                groupeRepository.save(groupe);
-                groupeGenerated.add(groupe);
-                listAppGene.clear();
-            }
+            //Shuffle liste
+            Collections.shuffle(allApprenants);
         }
-        else
+
+        List<List<Apprenant>> listGroupeGenetayed = IntStream.range(0, allApprenants.size())
+            .boxed()
+            .collect(Collectors.groupingBy(i -> i % nombreGroupe))
+            .values()
+            .stream()
+            .map(il -> il.stream().map(allApprenants::get).collect(Collectors.toList()))
+            .collect(Collectors.toList());
+        
+        for(int i = 0; i < nombreGroupe; i++)
         {
-            nbMemberPerGroup = nombreApprenants / nombreGroupe;
-            for(int i = 1; i <= nombreGroupe; i++)
-            {
-                for(int j = 0; j < nbMemberPerGroup; j++)
-                {
-                    int randomIndex = random.nextInt(allApprenants.size());
-                    Apprenant randomApprenant = allApprenants.get(randomIndex);
-                    listAppGene.add(randomApprenant);
-                    allApprenants.remove(randomIndex);
-                }
-
-                Groupe groupe = new Groupe();
-                groupe.setNom("Groupe "+i);
-                groupe.setApprenants(listAppGene);
-                groupeRepository.save(groupe);
-                groupeGenerated.add(groupe);
-                listAppGene.clear();
-            }
+            Groupe groupe = new Groupe();
+            groupe.setNom("Groupe "+i);
+            groupe.setApprenants(listGroupeGenetayed.get(i));
+            groupeRepository.save(groupe);
+            genGroup.add(groupe);
         }
-        return groupeGenerated;
+        
+        return genGroup;
     }
     
 }
