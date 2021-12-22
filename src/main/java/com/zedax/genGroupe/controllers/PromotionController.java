@@ -1,6 +1,5 @@
 package com.zedax.genGroupe.controllers;
 
-import com.zedax.genGroupe.entity.Apprenant;
 import com.zedax.genGroupe.entity.Promotion;
 import com.zedax.genGroupe.services.promotion.PromotionServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;

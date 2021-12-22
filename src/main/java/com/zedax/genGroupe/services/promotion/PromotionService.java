@@ -1,6 +1,4 @@
 package com.zedax.genGroupe.services.promotion;
-
-import com.zedax.genGroupe.entity.Apprenant;
 import com.zedax.genGroupe.entity.Promotion;
 import org.springframework.stereotype.Service;
 
