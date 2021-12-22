@@ -90,7 +90,7 @@ public class GroupeServiceImpl implements GroupeService{
             groupeRepository.save(groupe);
             genGroup.add(groupe);
         }
-        
+
         return genGroup;
     }
     
