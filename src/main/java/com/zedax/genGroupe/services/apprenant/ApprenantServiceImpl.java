@@ -38,11 +38,13 @@ public class ApprenantServiceImpl implements ApprenantService {
 
     @Override
     public List<Apprenant> listerApprenant() {
+
         return apprenantRepository.findAll();
     }
 
     @Override
     public Apprenant AfficherById(Long id) {
+
         return apprenantRepository.findById(id).get();
     }
 }

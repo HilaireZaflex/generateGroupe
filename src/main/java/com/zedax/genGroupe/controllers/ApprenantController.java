@@ -18,16 +18,30 @@ public class ApprenantController {
     String addApprenant(@RequestBody Apprenant apprenant){
         return apprenantServiceImpl.addApprenant(apprenant);
     }
+
+
     @GetMapping("/listerApprenant")
     List<Apprenant> listerApprenant(){
         return apprenantServiceImpl.listerApprenant();
     }
+
 
     @PutMapping("/modifierApprenant/{id}")
     Apprenant modifierApprenant(@RequestBody Apprenant apprenant, @PathVariable Long id){
         return apprenantServiceImpl.modifierApprenant(apprenant, id);
     }
 
+
+    @DeleteMapping("/supprimerApprenant/{id}")
+     void supprimerApprenant(@RequestBody Apprenant apprenant, @PathVariable Long id){
+        apprenantServiceImpl.supprimerApprenant(id);
+    }
+
+
+    @GetMapping("/detailApprenant/{id}")
+    Apprenant AfficherById(@PathVariable Long id){
+        return apprenantServiceImpl.AfficherById(id);
+    }
 
 
 }
