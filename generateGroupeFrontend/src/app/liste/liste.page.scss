@@ -1,27 +1,4 @@
-ion-segment-button {
-    --indicator-box-shadow: transparent !important;
-    border-radius: .5rem !important;
-    padding: 2px;
-    margin: 5px;
-  }
-  .container {
-    height: 100%;
-    background-color: rgb(230, 223, 223);
-    align-items: center;
-    justify-content: center;
-    text-align:center;
-  
-    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-    background-size: cover; /* version standardisée */
-  
-  
-  
-    h1{
-      font-size: 20px;
-    }
-  
-  }
-  
+
   ion-img {
     display: block;
     margin: auto;
@@ -32,41 +9,40 @@ ion-segment-button {
   h4{
     text-align: center;
   }
-  
-  
+
+
   .un ion-icon{
     float:right;
     margin: 2px;
     width: 20px;
     height: 20px;
-  
+
   }
 
   .strongView
   {
     font-weight: bold;
   }
-  
-  
+
+
   .col1 {
     display: flex;
     margin-left: auto;
     margin-right: 15%;
-  
+
     max-width: 70%;
   height: auto;
-  
+
   }
-  
+
   .title2{
     margin-top: 2%;
     margin-left: 42%;
   }
-  
+
   .img3{
     width: 30px;
     height: 30px;
     margin-left: 153%;
     margin-right: auto;
   }
-  

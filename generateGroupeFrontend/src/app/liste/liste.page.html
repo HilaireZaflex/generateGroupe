@@ -49,9 +49,9 @@
           <ion-item>
             <ion-label>{{apprenant.nomComplet}}</ion-label>
             <ion-label class="un" >
-              <ion-icon name="information-circle-outline"></ion-icon>
-              <ion-icon name="trash-outline" (click)="deleteApprenant(apprenant.id)"></ion-icon>
-              <ion-icon name="create-outline" (click)="updateApprenant(apprenant.id)"></ion-icon>
+              <ion-icon style="cursor: pointer" name="information-circle-outline" routerLink="/info"></ion-icon>
+              <ion-icon style="cursor: pointer" name="trash-outline" (click)="deleteApprenant(apprenant.id)"></ion-icon>
+              <ion-icon style="cursor: pointer" name="create-outline" (click)="updateApprenant(apprenant.id)"></ion-icon>
             </ion-label>
           </ion-item>
         </ion-list>
