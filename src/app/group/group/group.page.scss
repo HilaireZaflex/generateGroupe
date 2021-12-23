@@ -1,26 +1,25 @@
-h1{
-    font-size: 15px;
-    text-align: center;
-    color: gray;
+
+.entete ion-img {
+  display: block;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  text-align: center;
 }
-.allign{
-    display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-items: center;
-      align-content: stretch;
-  
-  
-  }
-  .one{
-    border: groove;
-    width: 180px;
-    height: 150px;
-  
-  }
-  .two{
-    border: groove;
-    width: 180px;
-    height: 150px;
-  }
+h4, h5{
+  text-align: center;
+}
+
+
+.un ion-img{
+  float:right;
+  margin: 2px;
+  width: 20px;
+  height: 20px;
+
+}
+
+.lab ion-label{
+  font-size: 11px;
+  text-align: right;
+}

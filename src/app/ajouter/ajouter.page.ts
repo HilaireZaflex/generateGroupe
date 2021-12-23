@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
 import { ConnexionService } from '../connexion.service';
 
 
@@ -11,55 +10,35 @@ import { ConnexionService } from '../connexion.service';
   styleUrls: ['./ajouter.page.scss'],
 })
 export class AjouterPage implements OnInit {
-  validations_form: FormGroup;
-  errorMessage: string = '';
-  successMessage: string = '';
+  apprenant: FormGroup;
+  apprenantBody: any
 
-  validation_messages = {
-
-    'nomComplet': [
-      { type: 'required', message: 'le nom est obligatoire.' },
-      { type: 'pattern', message: 'Entrez un nom valide.' }
-    ],
-    'email': [
-      { type: 'required', message: 'Email est obligatoire.' },
-      { type: 'pattern', message: 'Entrez un email valide.' }
-    ],
-    'tel': [
-      { type: 'required', message: 'Tel est obligatoire.' },
-      { type: 'minlength', message: 'le telephone doit contenir au moins 5 caractères.' }
-    ]
-  };
-
-
-  constructor(
-    private navCtrl: NavController,
-    private authService: ConnexionService,
-    private formBuilder: FormBuilder,
-    private router: Router
-  ) { }
-
-  ngOnInit() {
-    this.validations_form = this.formBuilder.group({
-      nomComplet: [''],
-      email: [''],
-      tel: ['']
-    })
-    
-    this.validations_form = this.formBuilder.group({
-      nomComplet: new FormControl('', Validators.compose([
-        Validators.minLength(10),
-        Validators.required
-      ])),
-      email: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])),
-      tel: new FormControl('', Validators.compose([
-        Validators.minLength(8),
-        Validators.required
-      ])),
+  constructor(private formBuilder: FormBuilder, private _service: ConnexionService, private router: Router)
+  {
+    this.apprenant = this.formBuilder.group({
+      nomComplet: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required]
     });
+  }
+
+  ngOnInit() {}
+
+  saveApprenant()
+  {
+    this.apprenantBody = {
+      nomComplet: this.apprenant.value.nomComplet,
+      email: this.apprenant.value.email,
+      tel: this.apprenant.value.phone
+    }
+    
+    this._service.addApprenant(this.apprenantBody).subscribe(
+      res=>{
+        console.log(res);
+        this.router.navigate(['liste']);
+      }
+    )
+    
   }
 
 }

@@ -5,18 +5,23 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ConnexionService {
-  create(value: any) {
-    throw new Error('Method not implemented.');
-  }
-  logIn(userEmail: any, userPassword: any) {
-    throw new Error('Method not implemented.');
-  }
-  apiUrl = "http://localhost:8080/api";
+  url='http://localhost:8080/api';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  addApprenant(apprenant:any)
-  {
-    this.httpClient.post(this.apiUrl+"/apprenant/addApprenant", apprenant);
+  //Get all apprenants
+  getAllUapprenant(){
+    return this.http.get(this.url+"/apprenant/listerApprenant");
   }
+
+  //Save an apprenant
+  addApprenant(data:any){
+    return this.http.post(this.url+"/apprenant/addApprenant/", data, {responseType:"text"});
+  }
+
+  //Delete an apprenant
+  deleteApprenant(idApp:any){
+    return this.http.delete(this.url+"/apprenant/supprimerApprenant/"+idApp);
+  }
+
 }

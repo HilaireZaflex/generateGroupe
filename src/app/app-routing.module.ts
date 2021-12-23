@@ -26,7 +26,11 @@ const routes: Routes = [
   {
     path: 'modifier',
     loadChildren: () => import('./modifier/modifier.module').then( m => m.ModifierPageModule)
+  },  {
+    path: 'liste',
+    loadChildren: () => import('./liste/liste.module').then( m => m.ListePageModule)
   },
+
 ];
 
 @NgModule({

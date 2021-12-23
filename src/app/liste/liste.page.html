@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar no-border-top>
+    <ion-segment>
+      <ion-segment-button routerLink="/home">
+        Accueil
+      </ion-segment-button>
+      <ion-segment-button routerLink="/group">
+        Groupe
+      </ion-segment-button>
+      <ion-segment-button routerLink="/liste">
+        Listes
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-img src="./assets/multiple-users-silhouette.png" alt="#" class="img2"></ion-img>
+    <h4>Liste des apprenants</h4>
+</div>
+  <ion-searchbar placeholder="Recherche"></ion-searchbar>
+
+
+    <div class="col1" >
+    <ion-row>
+      <ion-button color="warning">
+        <img class="img3" src="assets/add.png" alt="#" routerLink="/ajouter" style="margin-right: 150%;">
+      </ion-button>
+    </ion-row>
+
+    <ion-row>
+      <ion-button color="warning">
+         <img class="img3" src="assets/import.png" alt="#" (click)="presentePopover($event)" style="margin-right: 150%;" >
+      </ion-button>
+    </ion-row>
+
+    <ion-row>
+      <ion-button color="warning">
+        <img class="img3" src="assets/export.png" alt="#" (click)="onClick()" style="margin-right: 150%;">
+      </ion-button>
+    </ion-row>
+    </div>
+      <ion-item>
+        <ion-label>Nom</ion-label>
+        <ion-label>Email</ion-label>
+        <ion-label>Action</ion-label>
+      </ion-item>
+        <ion-list class="lab" *ngFor="let apprenant of listeApprenants">
+          <ion-item>
+            <ion-label >{{apprenant.nomComplet}}</ion-label>
+            <ion-label >{{apprenant.email}}</ion-label>
+            <ion-label class="un" >
+              <ion-img  src="assets/delete.png" routerLink='/affichage'></ion-img>
+              <ion-img  src="assets/edit.png" routerLink='/affichage'></ion-img>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+</ion-content>
