@@ -6,6 +6,7 @@ import com.zedax.genGroupe.repository.ApprenantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -20,15 +21,13 @@ public class ApprenantServiceImpl implements ApprenantService {
         return "Apprenant ajouté";
     }
 
+    @Transactional
     @Override
-    public Apprenant modifierApprenant(Apprenant apprenant, Long id) {
-
+    public void modifierApprenant(Apprenant apprenant, Long id) {
             Apprenant apprenant1 = apprenantRepository.findById(id).get();
             apprenant1.setNomComplet(apprenant.getNomComplet());
             apprenant1.setEmail(apprenant.getEmail());
             apprenant1.setTel(apprenant.getTel());
-        return  apprenantRepository.save(apprenant);
-
     }
 
     @Override

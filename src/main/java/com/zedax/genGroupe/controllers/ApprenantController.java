@@ -27,13 +27,13 @@ public class ApprenantController {
 
 
     @PutMapping("/modifierApprenant/{id}")
-    Apprenant modifierApprenant(@RequestBody Apprenant apprenant, @PathVariable Long id){
-        return apprenantServiceImpl.modifierApprenant(apprenant, id);
+    void modifierApprenant(@RequestBody Apprenant apprenant, @PathVariable Long id){
+        apprenantServiceImpl.modifierApprenant(apprenant, id);
     }
 
 
     @DeleteMapping("/supprimerApprenant/{id}")
-     void supprimerApprenant(@RequestBody Apprenant apprenant, @PathVariable Long id){
+     void supprimerApprenant(@PathVariable Long id){
         apprenantServiceImpl.supprimerApprenant(id);
     }
 
