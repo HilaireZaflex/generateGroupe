@@ -1,0 +1,49 @@
+
+<ion-header>
+  <ion-toolbar no-border-top>
+    <ion-segment>
+      <ion-segment-button routerLink="/home">
+        Accueil
+      </ion-segment-button>
+      <ion-segment-button routerLink="/group">
+        Groupe
+      </ion-segment-button>
+      <ion-segment-button routerLink="/liste">
+        Listes
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img src="./assets/multiple-users-silhouette.png" alt=""></ion-img>
+  <h4>
+    Générateur de groupe
+  </h4>
+
+  <form>
+    <div class="form-group file-area">
+      <input  accept=".xlsx" type="file" name="images" id="images"/>
+      <p style="color:rgb(156, 156, 156) ; font-size: 10px;text-align: left">Note : seuls les fichiers .xlsx sont </p>
+    </div>
+
+    <ion-item lines="full">
+      <ion-input placeholder="Nom du random" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input placeholder="Nombre personne" type="number" ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input placeholder="Nombre de groupe" type="number"></ion-input>
+    </ion-item>
+
+
+    <ion-row>
+      <ion-col width-50 style="text-align: center">
+        <ion-button  color="warning" shape="round"  type='submit'>Générer les groupes</ion-button>
+     </ion-col>
+     </ion-row>
+</form>
+</ion-content>

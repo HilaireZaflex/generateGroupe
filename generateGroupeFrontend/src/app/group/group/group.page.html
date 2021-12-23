@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar no-border-top>
+    <ion-segment>
+      <ion-segment-button routerLink="/home">
+        Accueil
+      </ion-segment-button>
+      <ion-segment-button routerLink="/group">
+        Groupe
+      </ion-segment-button>
+      <ion-segment-button routerLink="/liste">
+        Listes
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div class="toute">
+       <!-- entette -->
+       <ion-header class="entete" >
+        <ion-img  src="assets/multiple-users-silhouette.png"></ion-img>
+        <h4>Liste des groupes</h4>
+       </ion-header>
+      <ion-searchbar placeholder="Recherche"></ion-searchbar>
+      <ion-card>
+      <div class="container col-md-3">
+    <h5>Historique</h5>
+    
+      <div>
+        <ion-list class="lab">
+          <ion-item class="action">
+            <ion-label>Nom random</ion-label>
+            <ion-label class="un">
+              <ion-img  src="assets/export.png"></ion-img>
+              <ion-img  src="assets/vision.png" routerLink='/affichage'></ion-img>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+    </div>
+    </div>
+    </ion-card>
+    </div>
+  </div>
+  
+</ion-content>
