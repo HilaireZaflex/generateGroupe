@@ -6,7 +6,7 @@
 
 <ion-content>
   <h4>Ajouter un apprenant</h4>
-  <form autocomplete="off" [formGroup]="apprenant" (ngSubmit)="saveApprenant()">
+  <form autocomplete="off" [formGroup]="apprenant" (ngSubmit)="saveApprenant()" >
     <ion-item>
       <ion-input placeholder='Nom complet' type="text" formControlName="nomComplet"></ion-input>
     </ion-item>

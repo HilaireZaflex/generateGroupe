@@ -16,7 +16,7 @@ export class ConnexionService {
 
   //Save an apprenant
   addApprenant(data:any){
-    return this.http.post(this.url+"/apprenant/addApprenant/", data, {responseType:"text"});
+    return this.http.post(this.url+"/apprenant/addApprenant", data, {responseType:"text"});
   }
 
   //Delete an apprenant

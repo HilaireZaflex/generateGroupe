@@ -41,23 +41,17 @@
       </ion-button>
     </ion-row>
     </div>
-      <ion-item>
-        <ion-label>Nom</ion-label>
-        <ion-label>Email</ion-label>
-        <ion-label>Action</ion-label>
+      <ion-item class="strongView">
+        <ion-label>Nom complet</ion-label>
+        <ion-label style="margin-right: -40%;">Action</ion-label>
       </ion-item>
         <ion-list class="lab" *ngFor="let apprenant of listeApprenants">
           <ion-item>
-            <ion-label >{{apprenant.nomComplet}}</ion-label>
-            <ion-label >{{apprenant.email}}
-
-            </ion-label>
-            <ion-label class="un" > 
-              
+            <ion-label>{{apprenant.nomComplet}}</ion-label>
+            <ion-label class="un" >
+              <ion-icon name="information-circle-outline"></ion-icon>
               <ion-icon name="trash-outline" (click)="deleteApprenant(apprenant.id)"></ion-icon>
-          
               <ion-icon name="create-outline" (click)="updateApprenant(apprenant.id)"></ion-icon>
-            
             </ion-label>
           </ion-item>
         </ion-list>
