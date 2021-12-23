@@ -18,17 +18,18 @@
 <ion-content>
   <ion-img src="./assets/multiple-users-silhouette.png" alt=""></ion-img>
   <h4>
-    Random Group Generator
+    Générateur de groupe
   </h4>
 
   <form>
     <div class="form-group file-area">
       <input  accept=".xlsx" type="file" name="images" id="images"/>
-      <div class="file-dummy">
-        <div class="default">Veuillez importer une liste</div>
-      </div>
-      <p style="color:rgb(156, 156, 156) ; font-size: 10px;text-align: right">Note : seuls les fichiers .xlsx sont </p>
+      <p style="color:rgb(156, 156, 156) ; font-size: 10px;text-align: left">Note : seuls les fichiers .xlsx sont </p>
     </div>
+
+    <ion-item lines="full">
+      <ion-input placeholder="Nom du random" type="text" ></ion-input>
+    </ion-item>
 
     <ion-item lines="full">
       <ion-input placeholder="Nombre personne" type="number" ></ion-input>
@@ -39,6 +40,10 @@
     </ion-item>
 
 
-      <ion-button type='submit' shape="round" fill="outline">Generate groups</ion-button>
+    <ion-row>
+      <ion-col width-50 style="text-align: center">
+        <ion-button  color="warning" shape="round"  type='submit'>Générer les groupes</ion-button>
+     </ion-col>
+     </ion-row>
 </form>
 </ion-content>

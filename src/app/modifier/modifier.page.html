@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>modifier</ion-title>
+    <ion-back-button slot="start"></ion-back-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <h4>Modifier</h4>
+  <form class="apprenantModifier" [formGroup]="apprenantAModifier" (ngSubmit)="updateApprenant()">
+    <ion-item>
+     
+      <ion-input placeholder="Nom complet" value="{{currentApprenant?.nomComplet}}" formControlName="nomComplet"></ion-input>
+    </ion-item>
+    <ion-item>
+      
+      <ion-input placeholder="Email" value="{{currentApprenant?.email}}" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+    
+      <ion-input placeholder="Téléphone" value="{{currentApprenant?.tel}}" formControlName="phone"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col width-50 style="text-align: center">
+        <ion-button  color="warning" shape="round" type='submit' [disabled]="!apprenantAModifier.valid">Modifier</ion-button>
+     </ion-col>
+     </ion-row>
+   
+  </form>
 </ion-content>

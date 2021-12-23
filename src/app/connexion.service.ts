@@ -24,4 +24,15 @@ export class ConnexionService {
     return this.http.delete(this.url+"/apprenant/supprimerApprenant/"+idApp);
   }
 
+  //Modifier un apprenant
+  modifierApprenant(userData: any, userId: any){
+    return this.http.put(this.url+"/apprenant/modifierApprenant/"+userId, userData);
+  }
+
+  //Apprenant par Id
+  getApprenantById(id: any)
+  {
+    return this.http.get(this.url+"/apprenant/detailApprenant/"+id);
+  }
+
 }
