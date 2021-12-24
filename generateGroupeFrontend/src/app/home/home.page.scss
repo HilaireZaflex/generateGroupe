@@ -46,3 +46,31 @@ height: auto;
   margin-left: 153%;
   margin-right: auto;
 }
+
+.contenu{
+  display: flex;
+  flex-direction: row;
+  border: solid orange;
+  margin: 5px auto;
+}
+.contenu2{
+  margin: 5px 0;
+  display: flex;
+  flex-direction: row;
+}
+.contenu2 input {
+  width: 20em;
+  height: 2em;
+  border: solid orange;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.btn{
+
+  font-weight: bold;
+
+}
+// .btn:hover{
+//   background-color: rgb(255, 192, 75);
+//   border: none;
+// }

@@ -23,9 +23,13 @@
 
   <form>
     <div class="form-group file-area">
-      <input  accept=".xlsx" type="file" name="images" id="images"/>
+      <input class="form-control contenu" accept=".xlsx" type="file"/>
       <p style="color:rgb(156, 156, 156) ; font-size: 10px;text-align: left">Note : seuls les fichiers .xlsx sont </p>
+      <ion-button class="btn" color="warning"  type='submit'>Importer</ion-button>
     </div>
+</form>
+
+  <form>
 
     <ion-item lines="full">
       <ion-input placeholder="Nom du random" type="text" ></ion-input>
