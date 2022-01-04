@@ -9,3 +9,5 @@ Il y aura ensuite une page permettant d'indiquer le nombre de groupes à créer 
 La liste des participants et le dernier groupe généré doivent être gardés en mémoire (LocalStorage) .
 
 A travers l'application il doit etre possible "Exporter" la liste des groupes avec ses membres sous Excel.
+
+**Technos utilisées **: Ionic / Angular
